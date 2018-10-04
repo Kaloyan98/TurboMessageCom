@@ -8,6 +8,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "7",
     "babel-preset-stage-2": "^6.24.1",
+    "css-bundler": "^0.1.2",
     "jquery": "^3.3.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
@@ -26,5 +27,6 @@
   "bugs": {
     "url": "https://github.com/Kaloyan98/TurboMessageCom/issues"
   },
-  "homepage": "https://github.com/Kaloyan98/TurboMessageCom#readme"
+  "homepage": "https://github.com/Kaloyan98/TurboMessageCom#readme",
+  "dependencies": {}
 }

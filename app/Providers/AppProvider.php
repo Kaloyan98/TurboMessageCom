@@ -9,6 +9,7 @@ class AppProvider implements ProviderInterface
 {
 	public function __construct() {
 		ScriptLoader::addScript('dist/bundle.js', ScriptLoader::FOOTER);
+		ScriptLoader::addStyle('resources/css/main.css');
 	}
 
 	public function boot() {
