@@ -2,7 +2,9 @@
 
 namespace App\Provider;
 
-class Provider
+use App\Interfaces\ProviderInterface;
+
+class ScriptProvider implements ProviderInterface
 {
 	const HEADER = 'header';
 	const FOOTER = 'footer';
@@ -12,6 +14,10 @@ class Provider
 	// skip constructor
 	public function __construct() {}
 
+	public function boot() {
+		//  for not boot nothing
+	}
+
 	/**
 	 * Add script to any position you want
 	 * either Header or Footer
@@ -19,7 +25,7 @@ class Provider
 	 * @param [string] $position
 	 */
 	public static function addScript($filename, $position = static::HEADER) {
-		$scripts[] = $filepath;
+		$scripts[] = $filename;
 	}
 
 	/**
@@ -28,7 +34,7 @@ class Provider
 	 * @param [string] $filename [add relative path ./src/sd.js]
 	 */
 	public static function addStyle($filename) {
-		$scripts[] = $filepath;
+		$scripts[] = $filename;
 	}
 }
 
