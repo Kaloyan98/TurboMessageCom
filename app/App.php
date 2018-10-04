@@ -1,14 +1,12 @@
 <?php
-define('BASE_DIR', __DIR__);
 
 namespace App;
-
 
 use App\Interfaces\ProviderInterface;
 
 class App {
-	$providers = [];
-	$providerConfigFile = '';
+	protected $providers = [];
+	protected $providerConfigFile = '';
 
 	public function __construct() {
 		$this->providerConfigFile = __DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'providers.php';
@@ -20,10 +18,12 @@ class App {
 
 		//loop throught all providers classname
 		foreach ($providersClassName as $proivderClassName) {
+			//create an instance of the provider
 			$provider = new $proivderClassName;
 
+			// if the provider is not of provider interface skip it
 			if ($provider instanceof ProviderInterface) {
-				$this->provider[] = $provider;
+				$this->providers[] = $provider;
 			}
 		}
 	}

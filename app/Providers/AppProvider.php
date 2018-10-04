@@ -2,18 +2,18 @@
 
 namespace App\Providers;
 
+use App\Loaders\ScriptLoader;
 use App\Interfaces\ProviderInterface;
 
 class AppProvider implements ProviderInterface
 {
-	$autoloadDir = '';
-
 	public function __construct() {
-		$autoloadDir = BASE_DIR . '../vendor/autoload.php';
+		ScriptLoader::addScript('dist/bundle.js', ScriptLoader::FOOTER);
 	}
 
 	public function boot() {
-		include_once($this->autoloadDir);
+		$dotenv = new \Dotenv\Dotenv(BASE_DIR);
+		$dotenv->load();
 	}
 }
 
