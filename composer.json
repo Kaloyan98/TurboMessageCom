@@ -7,7 +7,9 @@
 	"require": {
 		"illuminate/database": "^5.7",
 		"vlucas/phpdotenv": "^2.5",
-		"symfony/filesystem": "^4.1"
+		"symfony/filesystem": "^4.1",
+		"symfony/finder": "^4.1",
+		"illuminate/events": "^5.7"
 	},
 	"require-dev": {
 		"symfony/var-dumper": "^4.1"
