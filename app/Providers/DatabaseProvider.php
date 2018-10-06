@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\DBTableFileManager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use Symfony\Component\Finder\Finder;
@@ -44,14 +45,23 @@ class DatabaseProvider implements ProviderInterface
 	}
 
 	private function loadDatabaseTables() {
+		$dbTableFileManager = new DBTableFileManager();
+		$dbTableFileManager->loadTableChecker();
+
 		// get all tables in
 		$finder = new Finder();
 		$finder->files()->in($this->tablesDIR);
 		// loop throught all files
 		// and include the tables
 		foreach ($finder as $tableFile) {
+			$tableFileNamePath = $tableFile->getRealPath();
+
+			if ($dbTableFileManager->isTableCreated(pathinfo($tableFileNamePath, PATHINFO_FILENAME))) {
+				continue;
+			}
+
 			// include the table class and run it
-			$tableClass = include_once($tableFile->getRealPath());
+			$tableClass = include_once($tableFileNamePath);
 
 			$tableClass->run();
 		}
