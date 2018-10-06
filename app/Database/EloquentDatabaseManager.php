@@ -28,9 +28,12 @@ class EloquentDatabaseManager implements DatabaseInterface {
 	}
 
 	public function addColumn($tableName, $columnName, $args = []) {
-		DatabaseManager::table($tableName, function($table) use($columns) {
+		$columns = [
+			$columnName => $args,
+		];
+
+		DatabaseManager::schema()->table($tableName, function($table) use($columns) {
 			// default column data
-			$columns[$columnName] = $args;
 
 			$this->createTableColumns($table, $columns);
 		});
@@ -79,6 +82,7 @@ class EloquentDatabaseManager implements DatabaseInterface {
 		if (!$columns) {
 			return;
 		}
+
 		foreach ($columns as $columnName => $columnData) {
 			// set default type of column
 			$type = !empty($columnData['type']) ? $columnData['type'] : 'string';

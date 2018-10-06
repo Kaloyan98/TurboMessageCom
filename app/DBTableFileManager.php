@@ -19,7 +19,12 @@ class DBTableFileManager {
 	}
 
 	public function isTableCreated($tableFileName) {
+		// add column value
 		if (!$this->tablesCreated) {
+			DatabaseParser::addColumnsValue($this->tableName, [
+				'filename' => $tableFileName,
+			]);
+
 			return false;
 		}
 

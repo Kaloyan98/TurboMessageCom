@@ -50,7 +50,7 @@ class DatabaseProvider implements ProviderInterface
 
 		// get all tables in
 		$finder = new Finder();
-		$finder->files()->in($this->tablesDIR);
+		$finder->files()->sortByName()->in($this->tablesDIR);
 		// loop throught all files
 		// and include the tables
 		foreach ($finder as $tableFile) {
