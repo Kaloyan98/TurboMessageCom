@@ -6,14 +6,14 @@ use App\Exceptions\ConfigNotSetException;
 use App\Exceptions\ClassMethodNotExisting;
 
 class DatabaseParser {
-	private $databaseConfigFile = '/config/database.php';
+	private $databaseConfigFile = '/database.php';
 	private $databaseInstance = null;
 
 	// static cached instance
 	private static $instance;
 
 	public function __construct() {
-		$config = include(BASE_DIR . $this->databaseConfigFile);
+		$config = include(CONFIG_DIR . $this->databaseConfigFile);
 
 		if (empty($config['databaseClass'])) {
 			throw new ConfigNotSetException('database', 'databaseClass');

@@ -9,7 +9,7 @@ class App {
 	protected $providerConfigFile = '';
 
 	public function __construct() {
-		$this->providerConfigFile = BASE_DIR . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'providers.php';
+		$this->providerConfigFile = CONFIG_DIR . DIRECTORY_SEPARATOR . 'providers.php';
 	}
 
 	public function loadProviders() {
