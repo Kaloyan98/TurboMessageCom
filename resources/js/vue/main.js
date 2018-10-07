@@ -20,5 +20,6 @@ if (document.querySelector('#message-app')) {
 
 	const app = new Vue({
 		el: '#message-app',
+		store
 	});
 }

@@ -2,7 +2,7 @@
 ?>
 
 <tcm-message-section inline-template>
-	<div class="section-message hidden">
+	<div class="section-message" v-if="isMessageSectionShown">
 		<div class="section__body">
 
 		</div>
