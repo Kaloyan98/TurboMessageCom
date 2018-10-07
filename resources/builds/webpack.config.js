@@ -41,7 +41,8 @@ module.exports = {
 		alias: {
 			masonry: 'masonry-layout',
 			isotope: 'isotope-layout',
-			'jquery-ui': 'jquery-ui-distjquery-ui.js'
+			'jquery-ui': 'jquery-ui-distjquery-ui.js',
+			'vue$': 'vue/dist/vue.esm.js'
 		}
 	},
 
