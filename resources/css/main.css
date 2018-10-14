@@ -1,2 +1,5 @@
 @import 'messenger.css';
 @import 'icons.css';
+@import 'button.css';
+
+[v-cloak] { display: none !important; }

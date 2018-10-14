@@ -10,7 +10,6 @@ Vue.component('tcm-icon', {
 	},
 	data() {
 		return {
-			localShowMessageSection
 		};
 	},
 	methods: {
