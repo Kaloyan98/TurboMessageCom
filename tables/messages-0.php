@@ -14,6 +14,9 @@ class MessageTable {
 				'type' => 'string',
 				'null' => true,
 			],
+			'timestamps' => [
+				'type' => 'timestamps',
+			],
 		]);
 	}
 }
